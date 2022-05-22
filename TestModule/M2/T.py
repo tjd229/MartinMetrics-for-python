@@ -1,0 +1,2 @@
+def T():
+    print("T")
