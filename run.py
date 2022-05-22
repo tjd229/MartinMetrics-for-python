@@ -77,8 +77,7 @@ def parse(file):
                 from_pkg,import_pkg = toks[1],toks[3]
 
 
-                relative = False
-                print(line)
+
                 if from_pkg.startswith('.'):
                     edge = [-1]
                     if len(from_pkg)>1 and from_pkg[1]=='.':
@@ -88,7 +87,6 @@ def parse(file):
                     else:
                         edge.append('..')
                         from_pkg = from_pkg[1:]
-                    relative = True
 
                     edge.extend(from_pkg.split('.'))
                     #print(edge)
@@ -148,8 +146,6 @@ def MartinMetric(tree):
 def run():
     parser = get_parser()
     tree = build_graph(parser.dir)
-    for k,v in tree.items():
-        print(k)
     MartinMetric(tree)
 
 
